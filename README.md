@@ -9,25 +9,25 @@
 ## Dependency
 - `Node.js`, `npm`
 - npm installしたbinにパスが通っていること
-- 環境変数に`ZENGAKU_USERNAME`と`ZENGAKU_PASSWORD`、または`UTID_NAME`と`UTID_PASS`のいずれかの組み合わせでmanabaのユーザ名とパスワードを用意すること
+- 環境変数に`ZENGAKU_USERNAME`と`ZENGAKU_PASSWORD`、または`UTID_NAME`と`UTID_PASS`のいずれかの組み合わせで全学のユーザ名とパスワードを用意すること
 
 ## Install
 
 ```terminal
-$ npm install utprint
+$ npm install -g utprint
 ```
 
 ## Usage
 
 ```terminal
-$ utprint /Users/qiushi/Desktop/sample.pdf
+$ utprint sample.pdf
 ```
 
 
 `-v`オプションでHeadless Chromeモードを解除して描画させることができます。
 
 ```terminal
-$ utprint -v /Users/qiushi/Desktop/sample.pdf
+$ utprint -v sample.pdf
 ```
 
 

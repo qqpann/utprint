@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+const program = require('commander');
+const puppeteer = require('puppeteer');
+const getAuthenticate = require('../authenticate');
+
+program
+  .option('-v, --view', 'View mode')
+  .option('-d, --debug', 'Debug mode');
+
+program.parse(process.argv);
+const files = program.args;
+
+let headless = true;
+if (program.view) {
+  headless = false;
+  if (program.debug) { console.log('INFO: Non Headless Mode'); }
+}
+
+const auth = getAuthenticate(debug=program.debug);
+const username = auth.username;
+const password = auth.password;
+
+(async() => {
+  
+  const br = await puppeteer.launch({headless: headless});
+  const page = await br.newPage();
+  await page.setViewport({width: 1000, height: 800});
+
+  await page.goto('https://papercut-p01.u.tsukuba.ac.jp:9192/user');
+  await page.type('input#inputUsername', username);
+  await page.type('input#inputPassword', password);
+  await page.click('input[type="submit"]');
+
+  await page.waitFor('a#linkUserWebPrint');
+  await page.click('a#linkUserWebPrint');
+
+  await page.waitFor('a.web-print-start');
+  await page.click('a.web-print-start');
+
+  await page.waitFor('#main > div.wizard > form > div.buttons > input.right');
+  await page.click('#main > div.wizard > form > div.buttons > input.right');
+
+  console.log(files);
+  await page.waitFor('#upload');
+  const elementHandle = await page.$('body > input[type="file"]');
+  await elementHandle.uploadFile(...files);
+  await page.waitFor(3000);
+  await page.click('#upload');
+
+
+  await page.waitFor('.infoMessage');
+  const infoMsg = await page.evaluate(() => document.querySelector('.infoMessage').innerText);
+  console.log(infoMsg);
+  const printJobs = await page.evaluate(() => document.querySelector('#main > div.web-print-intro > div:nth-child(3) > span > table').innerText);
+  console.log(printJobs);
+  await page.screenshot({path: '/Users/qiushi/Desktop/tmp.png', fullPage: true});
+  br.close();
+  
+  //console.log('Unknown error');
+})();

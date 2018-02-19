@@ -1,6 +1,6 @@
 {
   "name": "utprint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Submit Papercut Print from CLI for Univ. of Tsukuba",
   "bin": {
     "utprint": "bin/utprint"

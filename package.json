@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Submit Papercut Print from CLI for Univ. of Tsukuba",
   "bin": {
-    "atmnb": "bin/utprint"
+    "utprint": "bin/utprint"
   },
   "preferGlobal": true,
   "dependencies": {

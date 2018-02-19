@@ -2,7 +2,7 @@ const assert = require('assert');
 const getAuthenticate = require('../authenticate');
 
 it('Login test: No auth', () => {
-  process.env.UTID_13 = '';
+  process.env.UTID_NAME = '';
   process.env.UTID_PASS = '';
   process.env.ZENGAKU_USERNAME = '';
   process.env.ZENGAKU_PASSWORD = '';
@@ -14,7 +14,7 @@ it('Login test: No auth', () => {
 });
 
 it('Login test: Manaba only', () => {
-  process.env.UTID_13 = '';
+  process.env.UTID_NAME = '';
   process.env.UTID_PASS = 'not enough';
   process.env.ZENGAKU_USERNAME = 'zn-n';
   process.env.ZENGAKU_PASSWORD = 'zn-p';
@@ -26,7 +26,7 @@ it('Login test: Manaba only', () => {
 });
 
 it('Login test: UTID surpasses', () => {
-  process.env.UTID_13 = 'ut-n';
+  process.env.UTID_NAME = 'ut-n';
   process.env.UTID_PASS = 'ut-p';
   process.env.ZENGAKU_USERNAME = 'aaa';
   process.env.ZENGAKU_PASSWORD = 'bbb';

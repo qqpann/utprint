@@ -55,7 +55,7 @@ const password = auth.password;
     console.log(infoMsg);
     const printJobs = await page.evaluate(() => document.querySelector('#main > div.web-print-intro > div:nth-child(3) > span > table').innerText);
     console.log(printJobs);
-    await page.screenshot({path: '/Users/qiushi/Desktop/tmp.png', fullPage: true});
+    //await page.screenshot({path: '/Users/qiushi/Desktop/tmp.png', fullPage: true});
     br.close();
   } else {
     console.log('Unknown error');

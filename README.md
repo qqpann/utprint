@@ -6,6 +6,9 @@
 全学計算機PaperCut Printのコマンドラインツール、Node.js版です。\
 [GoogleChrome/puppeteer][puppeteer]を利用しています。
 
+> Inspired by [kajyuuen/Papercut-Submit](https://github.com/kajyuuen/Papercut-Submit)
+
+
 ## Dependency
 - `Node.js`, `npm`
 - npm installしたbinにパスが通っていること
@@ -35,10 +38,10 @@ $ utprint -v sample.pdf
 
 
 ### Related projects
-[shuuji3/manaba-attend](https://github.com/shuuji3/manaba-attend)\
-[kajyuuen/Papercut-Submit](https://github.com/kajyuuen/Papercut-Submit)
+[qiugits/atmnb](https://github.com/qiugits/atmnb) 同じくコマンドラインから、manaba出席を提出することができるツール
 
-#### Reference [統一認証システム](https://account.tsukuba.ac.jp/list.html)
+### Reference
+[統一認証システム](https://account.tsukuba.ac.jp/list.html)
 
 
 [puppeteer]: https://github.com/GoogleChrome/puppeteer
